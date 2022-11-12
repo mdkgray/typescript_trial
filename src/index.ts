@@ -79,3 +79,19 @@ let employee1: Employee = { // need to explicitly supply a type annotation
         console.log(date);
     }
 };
+
+// --------------------UNION TYPES------------------- //
+
+function kgToLbs(weight: number | string): number { // define union type of weight to a number or string 
+    // Narrowing
+    if (typeof weight === 'number') {
+        return weight * 2.2;
+    } else {
+        return parseInt(weight) * 2.2;
+    }
+}
+
+// both of these are ok to pass as type number or string has been defined above 
+kgToLbs(10);
+kgToLbs('10');
+
