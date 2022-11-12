@@ -1,4 +1,4 @@
-// ----------TYPES-----------   //
+// -------------------TYPES---------------------   //
 
 let sales: number = 123_456_789;
 let course: string = 'TypeScript';
@@ -10,7 +10,7 @@ function render(document: any) {
     console.log(document);
 }
 
-// ----------ENUMS-----------   //
+// -------------------ENUMS----------------------   //
 
 // if using enum no need to define these variables
 // const small = 1;
@@ -24,7 +24,12 @@ let mySize: Size = Size.Medium;
 
 console.log(mySize); // will log 2
 
-// ----------FUNCTIONS--------- //
+// --------------------FUNCTIONS------------------- //
+
+// best to enable these three options in the tsconfig file:
+    // noUnusedLocals
+    // noUnusedParameters
+    // noImplicitReturns
 
 function calculateTax(income: number, taxYear = 2022) : number {   // annotated function to return a number
         // can explicitly define tax year here so that the function can be called without a default value 
@@ -35,4 +40,42 @@ function calculateTax(income: number, taxYear = 2022) : number {   // annotated 
     }
 }
 
-calculateTax(10_000, 2022);
+calculateTax(10_000);
+
+// --------------------OBJECTS------------------- //
+
+let employee: { // need to explicitly supply a type annotation
+    readonly id: number, // readonly modifier used to instruct the typescript compiler to never modify the value of the property 
+    name: string,
+    retire: (date: Date) => void 
+} = { 
+    id: 1, 
+    name: 'Mackenzie', 
+    retire: (date: Date) => { // need to pass the retire parameter into the object 
+        console.log(date);
+    }
+};
+
+// --------------------------------------ADVANCED TYPES------------------------------------- //
+            // Type aliases
+            // Unions and intersections 
+            // Type narrowing
+            // Nullable types 
+            // The unknown type 
+            // The never type
+
+// --------------------TYPE ALIASES------------------- //
+
+type Employee = {
+    readonly id: number, 
+    name: string,
+    retire: (date: Date) => void 
+}
+
+let employee1: Employee = { // need to explicitly supply a type annotation
+    id: 1, 
+    name: 'Mackenzie', 
+    retire: (date: Date) => { // need to pass the retire parameter into the object 
+        console.log(date);
+    }
+};
