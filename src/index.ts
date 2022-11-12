@@ -95,3 +95,19 @@ function kgToLbs(weight: number | string): number { // define union type of weig
 kgToLbs(10);
 kgToLbs('10');
 
+// --------------------INTERSECTION TYPES------------------- //
+
+type Draggable = {
+    drag: () => void;
+}
+
+type Resizable = {
+    resize: () => void;
+}
+
+type UIWidget = Draggable & Resizable; // '&' used in an intersection type 
+
+let textBox: UIWidget = { // implementing the drag and resize methods for the textBox 
+    drag: () => {},
+    resize: () => {}
+}
