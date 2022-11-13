@@ -122,3 +122,15 @@ let quantity: Quantity = 100;
 type Metric = 'cm' | 'inch';
 
 let measurement: Metric = 'cm'; 
+
+// --------------------NULLABLE TYPES------------------- //
+
+function greet(name: string | null) { // need to use union operator to allow for null to be passed in this instance 
+    if (name) {
+        console.log(name.toUpperCase());    
+    } else {
+        console.log('Hello');        
+    }
+}
+
+greet(null);
