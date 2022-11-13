@@ -111,3 +111,14 @@ let textBox: UIWidget = { // implementing the drag and resize methods for the te
     drag: () => {},
     resize: () => {}
 }
+
+// --------------------LITERAL TYPES------------------- //
+
+// Literal (exact, specific) value 
+type Quantity = 50 | 100;
+
+let quantity: Quantity = 100;
+
+type Metric = 'cm' | 'inch';
+
+let measurement: Metric = 'cm'; 
