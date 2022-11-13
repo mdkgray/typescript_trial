@@ -134,3 +134,31 @@ function greet(name: string | null) { // need to use union operator to allow for
 }
 
 greet(null);
+
+// --------------------OPTIONAL CHAINING------------------- //
+
+type Customer = {
+    birthday?: Date
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+    return id === 0 ? null : { birthday: new Date() };
+} 
+
+let customer = getCustomer(0);
+
+// Optional property access operator
+
+    // instead of using the following:
+        // if (customer !== null && customer !== undefined) 
+    
+    // use the following:
+console.log(customer?.birthday?.getFullYear()); // will only be executed if there is a customer which has a birthday
+
+// Optional element access operator
+    // customers?.[0]
+
+// Optional call 
+let log: any = null;
+
+log?.('a'); // will only be executed if log is referencing an actual function, otherwise will get undefined 
